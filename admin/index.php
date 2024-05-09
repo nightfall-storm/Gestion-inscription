@@ -12,7 +12,11 @@
             color: #fff; /* Set text color to light */
         }
         .navbar {
-            background-color: #222; /* Set navbar background color to darker */
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000; /* Ensure navbar appears above other content */
+        background-color: #222; /* Set navbar background color to darker */
         }
         .navbar-brand img {
             width: 50px; /* Adjust size as needed */
@@ -34,16 +38,26 @@
             background-color: #007bff; /* Set alert background color */
             color: #fff; /* Set text color to light */
         }
-        .navbar-brand {
-            display: flex;
-            align-items: center;
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 250px;
+            background-color: #292b2c; /* Darker background color for sidebar */
+            padding-top: 100px; /* Space for the top navbar */
         }
-        .navbar-brand h2 {
-            margin: 0;
-            font-weight: bold;
-            text-align: center;
-            margin-left: auto;
-            margin-right: auto;
+        .sidebar-item {
+            padding: 10px 20px;
+            border-bottom: 1px solid #555; /* Border color */
+        }
+        .sidebar-item a {
+            color: #fff; /* Set text color to light */
+            text-decoration: none; /* Remove underline */
+            font-weight: bold; /* Make text bold */
+        }
+        .sidebar-item a:hover {
+            color: #007bff; /* Change text color on hover */
         }
     </style>
 </head>
@@ -52,12 +66,22 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.php">
             <img src="../icons/logo.jpg" alt="Logo">
         </a>
         <h2 class="text-center mx-auto my-0">ADMIN Dashboard</h2>
     </div>
 </nav>
+
+<!-- Sidebar menu -->
+<div class="sidebar">
+    <div class="sidebar-item">
+        <a href="manage-users.php">Manage Users</a>
+    </div>
+    <div class="sidebar-item">
+        <a href="inscription.php">Add User</a>
+    </div>
+</div>
 
 
 <div class="container mt-4">
