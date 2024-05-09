@@ -1,0 +1,20 @@
+body {
+    background-color: #333; /* Set background color to dark */
+    color: #fff; /* Set text color to light */
+}
+.navbar {
+    background-color: #222; /* Set navbar background color to darker */
+}
+.navbar-brand img {
+    width: 50px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Add space between logo and text */
+}
+.navbar-nav .nav-link {
+    color: #fff; /* Set text color to light */
+    font-weight: bold; /* Make text bold */
+    margin-right: 20px; /* Add space between menu items */
+}
+.navbar-nav .nav-link:hover {
+    color: #007bff; /* Change text color on hover */
+}
