@@ -1,5 +1,6 @@
 <?php
 include "db-connection.php";
+include 'auth-session.php';
 
 // Check if ID parameter is set
 if(isset($_GET['id'])) {
@@ -170,6 +171,9 @@ $conn->close();
     </div>
     <div class="sidebar-item">
         <a href="inscription.php">Add User</a>
+    </div>
+    <div class="sidebar-item">
+        <a href="logout.php">Logout</a>
     </div>
 </div>
 

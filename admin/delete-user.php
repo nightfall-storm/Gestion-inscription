@@ -1,6 +1,6 @@
 <?php
 include "db-connection.php";
-
+include 'auth-session.php';
 // Check if user ID is provided
 if(isset($_GET['id']) && !empty($_GET['id'] && $_GET['page'])) {
     $userId = $_GET['id'];

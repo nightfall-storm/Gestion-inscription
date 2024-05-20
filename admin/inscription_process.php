@@ -9,6 +9,8 @@
 <body>
     <div class="container">
     <?php
+include 'auth-session.php';
+
     // Check if the form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         include "db-connection.php";

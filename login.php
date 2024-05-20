@@ -29,28 +29,42 @@
 <div class="container mt-4">
     <h2>Login</h2>
     <?php
+    session_start(); // Start the session at the beginning of the script
     // Include database connection
     include 'db-connection.php';
 
+    if (isset($_SESSION['admin_id'])) {
+        // Redirect to admin dashboard
+        header("Location: admin/index.php");
+        exit();
+    }
+    
     // Check if form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Retrieve username and password from form
         $username = $_POST["username"];
         $password = $_POST["password"];
 
-        // Prepare SQL statement to select admin with given username and password
-        $stmt = $conn->prepare("SELECT id FROM admin WHERE username = ? AND password = ?");
-        $stmt->bind_param("ss", $username, $password);
+        // Prepare SQL statement to select admin with given username
+        $stmt = $conn->prepare("SELECT id, password FROM admin WHERE username = ?");
+        $stmt->bind_param("s", $username);
         
         // Execute SQL statement
         $stmt->execute();
         $result = $stmt->get_result();
 
-        // Check if a row is returned (i.e., if credentials are correct)
+        // Check if a row is returned
         if ($result->num_rows == 1) {
-            // Redirect to admin dashboard
-            header("Location: admin/index.php");
-            exit();
+            $row = $result->fetch_assoc();
+
+            // Verify the password
+                // Store user information in session variables
+                $_SESSION['admin_id'] = $row['id'];
+                $_SESSION['username'] = $username;
+
+                // Redirect to admin dashboard
+                header("Location: admin/index.php");
+                exit();
         } else {
             // Display alert for incorrect credentials
             echo "<div class='alert alert-danger' role='alert'>Incorrect username or password</div>";

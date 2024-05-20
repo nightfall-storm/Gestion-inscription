@@ -62,8 +62,10 @@
     </style>
 </head>
 <body>
-
-
+    <?php 
+include 'auth-session.php';
+    
+    ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="index.php">
@@ -80,6 +82,9 @@
     </div>
     <div class="sidebar-item">
         <a href="inscription.php">Add User</a>
+    </div>
+    <div class="sidebar-item">
+        <a href="logout.php">Logout</a>
     </div>
 </div>
 

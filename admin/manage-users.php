@@ -1,5 +1,6 @@
 <?php
 include "db-connection.php";
+include 'auth-session.php';
 
 // Pagination variables
 $limit = 15; // Number of users per page
@@ -139,6 +140,9 @@ $result = $conn->query($sqlSearch);
     </div>
     <div class="sidebar-item">
         <a href="inscription.php">Add User</a>
+    </div>
+    <div class="sidebar-item">
+        <a href="logout.php">Logout</a>
     </div>
 </div>
 

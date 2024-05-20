@@ -10,7 +10,14 @@
     </style>
 </head>
 <body>
-<?php include 'navbar.php'; ?>
+<?php include 'navbar.php';
+session_start();
+if (isset($_SESSION['admin_id'])) {
+    // Redirect to admin dashboard
+    header("Location: admin/index.php");
+    exit();
+}
+?>
 
 
     <!-- Your main content goes here -->

@@ -52,6 +52,10 @@
         }
 </style>
 </head>
+<?php
+include 'auth-session.php';
+
+?>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
@@ -69,6 +73,9 @@
     </div>
     <div class="sidebar-item">
         <a href="inscription.php">Add User</a>
+    </div>
+    <div class="sidebar-item">
+        <a href="logout.php">Logout</a>
     </div>
 </div>
     <div class="container mt-5">
